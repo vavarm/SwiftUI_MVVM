@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-protocol ModelObserver{
+protocol FestivalObserver{
     var name : String {get}
     var numberOfTables : Int {get}
     var tablePrice : Double {get}
@@ -21,7 +21,7 @@ protocol ModelObserver{
 
 }
 
-class FestivalViewModel : ModelObserver, ObservableObject {
+class FestivalViewModel : FestivalObserver, ObservableObject {
     @Published public var name : String {
         didSet{
             if name != oldValue{
@@ -46,14 +46,14 @@ class FestivalViewModel : ModelObserver, ObservableObject {
     }
     
     public var m2price : Double {
-        return round (tablePrice*10/Festival.sqmTable/10)
+        return round (tablePrice*10/FestivalModel.sqmTable/10)
     }
     
     public var maxRevenue : Double {
         return tablePrice*Double(numberOfTables)
     }
     
-    var modelFestival : Festival
+    var modelFestival : FestivalModel
     
     func nameChanged(name : String){
         if name != self.name {
@@ -73,7 +73,7 @@ class FestivalViewModel : ModelObserver, ObservableObject {
         }
     }
     
-    init(festival : Festival) {
+    init(festival : FestivalModel) {
         self.modelFestival = festival
         self.name = festival.name
         self.numberOfTables = festival.numberOfTables

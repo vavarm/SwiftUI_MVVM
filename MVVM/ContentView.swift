@@ -7,12 +7,9 @@
 
 import SwiftUI
 
-let defaultNumber = 64
-let defaultPrice = 100.0
-
 struct ContentView: View {
     
-    var model : Festival = Festival(name: "My Festival")
+    var model : FestivalModel = FestivalModel(name: "My Festival")
     
     var body: some View {
         

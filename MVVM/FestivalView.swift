@@ -12,7 +12,7 @@ struct FestivalView : View {
     
     @ObservedObject var festivalViewModel : FestivalViewModel
     
-    init(festival : Festival){
+    init(festival : FestivalModel){
         festivalViewModel = FestivalViewModel(festival : festival)
     }
     

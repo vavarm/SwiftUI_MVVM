@@ -9,9 +9,9 @@ import SwiftUI
 
 protocol FestivalObservable {
     
-    var observers : [ModelObserver] {get set}
+    var observers : [FestivalObserver] {get set}
     
-    func register( o : ModelObserver)
+    func register( o : FestivalObserver)
     
     func notifyNameChanged(name : String)
     
@@ -23,9 +23,9 @@ protocol FestivalObservable {
     
 }
 
-class Festival : FestivalObservable {
+class FestivalModel : FestivalObservable {
     
-    var observers : [ModelObserver]
+    var observers : [FestivalObserver]
     
     static var sqmTable : Double = 6.0
     public var name : String {
@@ -59,7 +59,7 @@ class Festival : FestivalObservable {
         self.observers = []
     }
     
-    func register(o: ModelObserver) {
+    func register(o: FestivalObserver) {
         self.observers.append(o)
     }
     
